@@ -30,11 +30,8 @@ $('.submit').on('click', function() {
 
   var numNights = $('.num-nights').val();
   var maxBudget = $('.max-budget').val();
-  var theme = "Beach";
 
   socket.emit('params', groupNumber, city, departureDate, arrivalDate, numNights, maxBudget, theme)
-
-  console.log('groupNumber:', groupNumber, 'city:', city, 'departureDate:', arrivalDate, 'numNights:', 'maxBudget:', maxBudget)
 
   console.log('groupNumber:', groupNumber, 'city:', city, 'departureDate:', arrivalDate, 'numNights:', 'maxBudget:', maxBudget, 'theme', theme)
 
