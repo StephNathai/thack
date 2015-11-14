@@ -13,8 +13,8 @@ app.use(express.static('public'));
 io.on('connection', function(socket){
   console.log('A user has connected')
 
-  socket.on('params', function(groupNumber, city, departureDate, arrivalDate, numNights, maxBudget){
-    console.log('groupNumber:', groupNumber, 'city:', city, 'departureDate:', arrivalDate, 'numNights:', 'maxBudget:', maxBudget)
+  socket.on('params', function(groupNumber, city, departureDate, arrivalDate, numNights, maxBudget, theme){
+    console.log('groupNumber:', groupNumber, 'city:', city, 'departureDate:', arrivalDate, 'numNights:', 'maxBudget:', maxBudget, 'theme', theme)
   });
 
 
