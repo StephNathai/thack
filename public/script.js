@@ -1,19 +1,28 @@
 $(function() {
 
 var socket = io(); //create an io connection
-var groupNum;
 
-$('.group-number').keypress(function(e) {
-  if(e.which == 13) {
-  groupNum = $('.group-number').val();
-  console.log(groupNum)
-
-  }
-})
+// $('.group-number').keypress(function(e) {
+//   if(e.which == 13) {
+//   groupNum = $('.group-number').val();
+//   console.log(groupNum)
+//
+//   }
+// })
 
 $('.explore').on('click', function() {
-  $('.first-page').remove();
-  socket.emit('groupNum', groupNum)
+  $('.themes').toggle();
+  var groupNumber = $('.group-number').val();
+  var city = $('.city').val();
+  var departureDate = $('.deprture-date').val();
+  var arrivalDate = $('.arrival-date').val();
+
+  var numNights = $('.num-nights').val();
+  var maxBudget = $('.max-budget').val();
+
+  socket.emit('params', groupNumber, city, departureDate, arrivalDate, numNights, maxBudget)
+  console.log('groupNumber:', groupNumber, 'city:', city, 'departureDate:', arrivalDate, 'numNights:', 'maxBudget:', maxBudget)
+
   event.preventDefault();
 })
 
