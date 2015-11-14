@@ -24,7 +24,6 @@ io.on('connection', function(socket){
 	  uri:           'https://api.test.sabre.com'
 	});
 
-	var tripData;
 	var options = {};
 	var callback = function(error, data) {
 	  if (error) {
@@ -36,7 +35,7 @@ io.on('connection', function(socket){
   		});
 	  }
 	};
-	sabre_dev_studio.get('/v1/lists/top/destinations?origin='+city+'&theme=beach&topdestinations=5&lookbackweeks=2', options, callback);
+	sabre_dev_studio.get('/v1/lists/top/destinations?origin='+city+'&theme='+theme+'&topdestinations=6&lookbackweeks=2', options, callback);
 
 
 
