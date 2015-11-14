@@ -25,15 +25,15 @@ $('.theme-individual').on('click', function() {
 $('.submit').on('click', function() {
   var groupNumber = $('.group-number').val();
   var city = $('.city').val();
-  var departureDate = $('.deprture-date').val();
+  var departureDate = $('.departure-date').val();
   var arrivalDate = $('.arrival-date').val();
-
-  var numNights = $('.num-nights').val();
   var maxBudget = $('.max-budget').val();
 
-  socket.emit('params', groupNumber, city, departureDate, arrivalDate, numNights, maxBudget, theme)
 
-  console.log('groupNumber:', groupNumber, 'city:', city, 'departureDate:', arrivalDate, 'numNights:', 'maxBudget:', maxBudget, 'theme', theme)
+  socket.emit('params', groupNumber, city, departureDate, arrivalDate, maxBudget, theme)
+  
+  console.log('groupNumber:', groupNumber, 'city:', city, 'departureDate:', departureDate, 'arrivalDate', arrivalDate, 'maxBudget:', maxBudget, 'theme', theme)
+
 
   event.preventDefault();
 
