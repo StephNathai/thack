@@ -29,9 +29,13 @@ io.on('connection', function(socket){
 	  if (error) {
 	    console.log(error);
 	  } else {
-	    console.log(JSON.stringify(JSON.parse(data)));
-	      app.get('/data', function(req, res) {
+	 
+
+	    tripData = data;
+	    socket.emit('topDestinations', tripData);
+	     app.get('/data', function(req, res) {
   			res.json(JSON.parse(data));
+	    console.log('server - trip data', tripData);
   		});
 	  }
 	};

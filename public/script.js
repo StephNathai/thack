@@ -33,10 +33,12 @@ $('.submit').on('click', function() {
   socket.emit('params', groupNumber, city, departureDate, arrivalDate, maxBudget, theme)
   
   console.log('groupNumber:', groupNumber, 'city:', city, 'departureDate:', departureDate, 'arrivalDate', arrivalDate, 'maxBudget:', maxBudget, 'theme', theme)
-
-
   event.preventDefault();
 
-})
+});
+
+socket.on('topDestinations', function(tripData) {
+  console.log(tripData);
+});
 
 }) //end closure wrap
