@@ -30,13 +30,17 @@ io.on('connection', function(socket){
 	  if (error) {
 	    console.log(error);
 	  } else {
-	    console.log(JSON.stringify(JSON.parse(data)));
-	      app.get('/data', function(req, res) {
+	 
+
+	    tripData = data;
+	    socket.emit('topDestinations', tripData);
+	     app.get('/data', function(req, res) {
   			res.json(JSON.parse(data));
+	    console.log('server - trip data', tripData);
   		});
 	  }
 	};
-	sabre_dev_studio.get('/v1/lists/top/destinations?origin='+city+'&theme=beach&topdestinations=5&lookbackweeks=2', options, callback);
+	sabre_dev_studio.get('/v1/lists/top/destinations?origin='+city+'&theme='+theme+'&topdestinations=6&lookbackweeks=2', options, callback);
 
 
 
