@@ -29,6 +29,10 @@ io.on('connection', function(socket){
     	}
 
     });
+
+  socket.on('params', function(groupNumber, city, departureDate, arrivalDate, numNights, maxBudget, theme){
+    console.log('groupNumber:', groupNumber, 'city:', city, 'departureDate:', arrivalDate, 'numNights:', 'maxBudget:', maxBudget, 'theme', theme)
+
   });
 
 
