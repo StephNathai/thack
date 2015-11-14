@@ -13,8 +13,9 @@ app.use(express.static('public'));
 io.on('connection', function(socket){
   console.log('A user has connected')
 
-	socket.on('first_throw', function(groupNumber) {
-		console.log("groupNum", groupNumber);
-	});
+  socket.on('groupNum', function(groupNum){
+    console.log(groupNum)
+  });
+
 
 })//io
