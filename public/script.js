@@ -2,6 +2,12 @@ $(function() {
 
   var socket = io(); //create an io connection
   var theme;
+  var city;
+  var departureDate;
+  var arrivalDate;
+  var groupNumber;
+  var cityName;
+
 
   $('.explore').on('click', function() {
     $('.themes').toggle();
@@ -12,11 +18,11 @@ $(function() {
     theme = $(this).find('h4').text()
   });
 
-  $('.submit').on('click', function() {
-    var groupNumber = $('.group-number').val();
-    var city = $('.city').val();
-    var departureDate = $('.departure-date').val();
-    var arrivalDate = $('.arrival-date').val();
+ $('.theme-individual').on('click', function() {
+    groupNumber = $('.group-number').val();
+    city = $('.city').val();
+    departureDate = $('.departure-date').val();
+    arrivalDate = $('.arrival-date').val();
     var maxBudget = $('.max-budget').val();
 
     socket.emit('params', groupNumber, city, departureDate, arrivalDate, maxBudget, theme)
@@ -29,27 +35,28 @@ $(function() {
     var cityArr = [];
 
     for (var i=0; i<cityList.length; i++) {
-      var cityName = cityList[i].Destination.CityName;
+      cityName = cityList[i].Destination.CityName;
       if (cityName != undefined) {
         cityArr.push(cityName);
-        $('.topDest').append($('<div class='+cityName+'>').text(cityArr[i]));
+        $('.topDest').append($('<h4 class= '+cityName+' >').text(cityArr[i]));
       } else {
         var metroName = cityList[i].Destination.MetropolitanAreaName;
         cityArr.push(metroName);
-      $('.topDest').append($('<div class='+cityName+'>').text(cityArr[i]));
+      $('.topDest').append($('<h4 class='+cityName+'>').text(cityArr[i]));
       }
     }
 
+
     showPhotos();
 
+
     function showPhotos() {
-      $('.Denver').append('<br><img src="/images/adventure/denver_adventure.png" />');
+       $('.Denver').append('<br><img src="/images/adventure/denver_adventure.png" />');
        $('.Denver').append('<br><li>Hyatt Regency Denver at Colorado Convention Center - <span class="price">$99.00</span></li>');
        $('.Denver').append('<br><li>The Magnolia Hotel Denver - <span class="price">$111.93</span></li>');
        $('.Denver').append('<br><li>Hyatt Regency Denver Tech Center - <span class="price">$84.00</span></li>');
        $('.Denver').append('<br><li>Baymont Inn & Suites Denver International Airport - <span class="price">$75.65</span></li>');
        $('.Denver').append('<br><li>Hyatt Place Denver Cherry Creek - <span class="price">$89.00</span></li>');
-
 
        $('.Las').append('<br><img src="/images/adventure/lasvegas_adventure.png" />');
        $('.Las').append('<br><li>Luxor Hotel And Casino - <span class="price">$35.00</span></li>');
@@ -59,18 +66,18 @@ $(function() {
        $('.Las').append('<br><li>Treasure Island - <span class="price">$59.96</span></li>');
 
        $('.Cancun').append('<br><img src="/images/adventure/cancun_adventure.png" />');
-      $('.Cancun').append('<br><li>Riu Palace Las Americas - All Inclusive - <span class="price">$268.05</span></li>');
-      $('.Cancun').append('<br><li>Riu Caribe - All Inclusive - <span class="price">$224.98</span></li>');
-      $('.Cancun').append('<br><li>Riu Palace Peninsula - All Inclusive - <span class="price">$301.58</span></li>');
-      $('.Cancun').append('<br><li>Fiesta Americana Condesa Cancun - All Inclusive - <span class="price">$197.72</span></li>');
-      $('.Cancun').append('<br><li>The Royal Islander - An All Suites Resort - <span class="price">$101.05</span></li>');
+       $('.Cancun').append('<br><li>Riu Palace Las Americas - All Inclusive - <span class="price">$268.05</span></li>');
+       $('.Cancun').append('<br><li>Riu Caribe - All Inclusive - <span class="price">$224.98</span></li>');
+       $('.Cancun').append('<br><li>Riu Palace Peninsula - All Inclusive - <span class="price">$301.58</span></li>');
+       $('.Cancun').append('<br><li>Fiesta Americana Condesa Cancun - All Inclusive - <span class="price">$197.72</span></li>');
+       $('.Cancun').append('<br><li>The Royal Islander - An All Suites Resort - <span class="price">$101.05</span></li>');
        
        $('.Honolulu').append('<br><img src="/images/adventure/adventure_hawaii.png" />');
        $('.Honolulu').append('<br><li>Apartments at the Ilikai - <span class="price">$120.00</span></li>');
-      $('.Honolulu').append('<br><li>Pacific Monarch Waikiki by Aloha Waikiki Condos - <span class="price">$173.3</span></li>');
-      $('.Honolulu').append('<br><li>Hilton Hawaiian Village - <span class="price">$185.00</span></li>');
-      $('.Honolulu').append('<br><li>Sweetwater at Waikiki - <span class="price">$173.00</span></li>');
-      $('.Honolulu').append('<br><li>Aston Waikiki Beach Tower - <span class="price">$374.66</span></li>');
+       $('.Honolulu').append('<br><li>Pacific Monarch Waikiki by Aloha Waikiki Condos - <span class="price">$173.3</span></li>');
+       $('.Honolulu').append('<br><li>Hilton Hawaiian Village - <span class="price">$185.00</span></li>');
+       $('.Honolulu').append('<br><li>Sweetwater at Waikiki - <span class="price">$173.00</span></li>');
+       $('.Honolulu').append('<br><li>Aston Waikiki Beach Tower - <span class="price">$374.66</span></li>');
        
        $('.San').append('<br><img src="/images/adventure/sf-adventure.png" />');
        $('.San').append('<br><li>Inn At The Opera - <span class="price">$151.05</span></li>');
@@ -87,6 +94,20 @@ $(function() {
        $('.undefined').append('<br><li>Crowne Plaza Hotel Fudan Shanghai - <span class="price">$90.01</li>');
     }
 
+    $('.topDest li').on('click', function() {
+      $('.receipt').show();
+       var hotelSelection = $(this).text();
+       $('#hotelList').append('<li>'+ cityName + " : " + hotelSelection+'</li>');
+       $('#airportOr').html("Airport origin: " + city.toUpperCase());
+       $('#deptDate').html("Departure date: " + departureDate);
+       $('#returnDate').html("Arrival date: " + arrivalDate);
+       $('#groupIt').html("Itinerary for " + groupNumber + " people.");
+       $('#receiptTitle').html("Suggested Itinerary for our " + theme + " trip!");
+    });
+
+    $('.receipt li').on('click', function() {
+        $(this).remove();
+    });
 
 
     socket.emit('cityData', cityArr);

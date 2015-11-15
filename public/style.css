@@ -7,12 +7,16 @@ body {
 }
 
 .wrapper {
-	margin: 20px;
+	margin: 30px;
 	text-align: center;
 }
 
 li {
 	list-style: none;
+}
+
+.cityHead {
+	font-size: 1.4em;
 }
 
 .price {
@@ -46,29 +50,68 @@ input {
      transition:opacity linear 0.15s;
 }
 
-#dropdown-menu:hover{
-	opacity: 1;
-	z-index: 1;
-}
-
-img {
-  width: 20%;
-  height: 20%;
-}
-
 .theme-individual {
-  width: 20%;
-  display: inline-block;
+  width: 100%;
+  display: block;
+  position: relative;
 }
 
-.theme-border {
-  border-style: solid;
+.themes img {
+  width: 80%;
+  height: 20%;
+  position: relative;
+  z-index: 5;
+  opacity: .8;
+}
+
+.themes h4 {
+	position: absolute;
+	z-index: 5;
+	top: 40%;
+	right: 45%;
+	font-size: 2em;
+	background: black;
+	color: white;
+	padding: 5px;
+}
+
+.theme-individual img:hover {
+  border: solid 3px black;
+}
+
+.topDest li:hover {
+  border: solid 1px black;
 }
 
 .topDest {
-	display: none;
+  display: none;
+  width: 100%;
+  display: block;
+  position: relative;
 }
 
 .topDest img {
-	width: 50%;
+  width: 80%;
+  height: 20%;
+  position: relative;
+  z-index: 5;
+  opacity: .8;
 }
+
+.topDest h4 {
+	position: relative;
+	z-index: 5;
+	top: 40%;
+	font-size: 1em;
+	color: black;
+	padding: 5px;
+}
+
+.topDest li {
+	display: inline-block;
+}
+
+.receipt {
+	display: none;
+}
+
