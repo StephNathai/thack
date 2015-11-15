@@ -19,8 +19,8 @@ io.on('connection', function(socket){
 
 
 	var sabre_dev_studio = new SabreDevStudio({
-	  client_id:     'V1:86jc3fwksmc0u5hy:DEVCENTER:EXT',
-	  client_secret: '4WU5Gdim',
+	  client_id:     'V1:f5i3znifj7vs6p15:DEVCENTER:EXT',
+	  client_secret: '4I4KguYj',
 	  uri:           'https://api.test.sabre.com'
 	});
 
@@ -29,8 +29,6 @@ io.on('connection', function(socket){
 	  if (error) {
 	    console.log(error);
 	  } else {
-	 
-
 	    tripData = data;
 	    socket.emit('topDestinations', tripData);
 	     app.get('/data', function(req, res) {
