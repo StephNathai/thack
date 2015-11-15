@@ -17,21 +17,30 @@ io.on('connection', function(socket){
 
   socket.on('params', function(groupNumber, city, departureDate, arrivalDate, maxBudget, theme){
 
-
 	var sabre_dev_studio = new SabreDevStudio({
-	  client_id:     'V1:f5i3znifj7vs6p15:DEVCENTER:EXT',
-      client_secret: '4I4KguYj',
+	  client_id:     'V1:xnsawzvi0m2s0mwb:DEVCENTER:EXT',
+      client_secret: 'Ejxe2L2D',
 	  uri:           'https://api.test.sabre.com'
 	});
 
-	var tripData;
 	var options = {};
+
 	var callback = function(error, data) {
 	  if (error) {
 	    console.log(error);
 	  } else {
+	    tripData = JSON.parse(data);
+	    cityNames = tripData.Destinations.Destination;
+	    console.log('CITY NAMES', cityNames);
 
-	    tripData = data;
+	    // var cityList = [];
+	    // for (var i=0; i< cityNames.length; i++) {
+	    // 	var cityName = cityNames[i].Destination.CityName;
+	    // 	cityList.push(cityName);
+	    // }
+
+
+
 	    socket.emit('topDestinations', tripData);
 	    app.get('/data', function(req, res) {
   			res.json(JSON.parse(data));

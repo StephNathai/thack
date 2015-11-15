@@ -38,12 +38,26 @@ $('.submit').on('click', function() {
 });
 
 socket.on('topDestinations', function(tripData) {
-  console.log(tripData);
+  console.log(tripData.Destinations);
+  var cityList = tripData.Destinations;
+  console.log('CITY LIST', cityList);
+
+  var cityArr = [];
+
+  for (var i=0; i<cityList.length; i++) {
+    var cityName = cityList[i].Destination.CityName;
+    if (cityName != undefined) {
+      // var metroName = cityList[i].Destination.MetropolitanAreaName;
+      cityArr.push(cityName);
+    } else {
+      var metroName = cityList[i].Destination.MetropolitanAreaName;
+      cityArr.push(metroName);
+    }
+  }
+
+  console.log(cityArr);
   $('.themes').remove();
   $('.topDest').show();
-
-
-
 });
 
 }) //end closure wrap
