@@ -29,3 +29,7 @@ img {
 .theme-border {
   border-style: solid;
 }
+
+.topDest {
+	display: none;
+}

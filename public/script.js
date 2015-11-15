@@ -39,6 +39,11 @@ $('.submit').on('click', function() {
 
 socket.on('topDestinations', function(tripData) {
   console.log(tripData);
+  $('.themes').remove();
+  $('.topDest').show();
+
+
+
 });
 
 }) //end closure wrap
