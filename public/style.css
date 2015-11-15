@@ -245,7 +245,7 @@ input {
 	}
 
 	.themes h4 {
-		font-size: 1em;
+		font-size: .7em;
 	}
 
 	.themes img {
@@ -254,7 +254,7 @@ input {
 	}
 
 	.topDest {
-		font-size: .8em;
+		font-size: .7em;
 		font-weight: bold;
 	}
 
@@ -263,16 +263,17 @@ input {
 	}
 
 	.first-page {
-		font-size: 1em;
+		font-size: .7em;
 	}
 
 	.receipt {
-		font-size: .8em;
+		font-size: .7em;
 	}
 
 	input {
 		font-size: 1em;
 		width: 50%;
+		height: 20px;
 	}
 
 
