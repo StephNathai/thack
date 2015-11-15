@@ -11,12 +11,24 @@ body, html {
 	height: 100%;
 	margin: 0 auto;
 	text-align: center;
+	z-index: 10;
+}
+
+#content {
+	z-index: 10;
+	background: black;
+	width: 56%;
+	height: 100%;
+	color: white;
+	margin: 0 auto;
+	opacity: .8;
 }
 
 .first-page {
 	height: 100%;
-	background-image: url("/images/bg4.jpg");
+	background-image: url("/images/bg4.jpg") no-repeat center center fixed;
 	background-size: cover;
+
 }
 
 .first-page h2 {
@@ -30,6 +42,7 @@ body, html {
 	margin: 0;
 	color: black;
 }
+
 
 li {
 	list-style: none;
@@ -48,6 +61,7 @@ li {
 }
 
 #mainPhoto h1 {
+	padding: 50px;
 	margin: 0;
 }
 
@@ -62,9 +76,9 @@ input {
 	text-align: center;
 }
 
-
 .themes {
   display: none;
+  background-color: #E9EDF0;
 }
 
 #regions {
@@ -77,9 +91,10 @@ input {
 }
 
 .theme-individual {
-  width: 100%;
+  width: 70%;
   display: block;
   position: relative;
+  margin: 0 auto;
 }
 
 .themes img {
@@ -118,8 +133,7 @@ input {
 }
 
 .topDest img {
-  width: 80%;
-  height: 20%;
+  width: 60%;
   position: relative;
   z-index: 5;
   opacity: .8;
@@ -135,13 +149,64 @@ input {
 	display: inline-block;
 }
 
-
-.receipt {
+.cityToggle {
 	display: none;
 }
 
+.receipt {
+	margin: 0 auto;
+	width: 40%;
+	text-align: left;
+	display: none;
+	position: relative;
+	padding: 40px 80px;
+	margin-bottom: 100px;
+	background-color: #E4EEF8;
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
 
-/*
+#receiptTitle {
+	text-align: center;
+}
+
+#textBox {
+	margin: 0 auto;
+	font-size: 1em;
+}
+
+#hotelList {
+	padding: 0;
+}
+
+#share {
+	display: inline-block;
+	font-size: 1.4em;
+	background: black;
+	color: white;
+	padding: 5px;
+	margin: 0 auto;
+}
+
+#googledoc {
+	display: none;
+	width: 100%;
+	position: absolute;
+	top: -2%;
+	right: 10%;
+}
+
+#googledoc img {
+	position: relative;
+	width: 110%;
+	z-index: 100;
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+
 @media (max-width: 810px) and (min-width: 320px) {
  	
  	.wrapper {
@@ -150,6 +215,11 @@ input {
 		margin: 0 auto;
 		text-align: center;
 	}
+
+	#content {
+		width: 70%;
+	}
+
 	.themes h4 {
 		font-size: 1em;
 	}
@@ -159,20 +229,27 @@ input {
 		height: auto;
 	}
 
-	.topDest h4 {
-		font-size: 1em;
+	.topDest {
+		font-size: .8em;
 		font-weight: bold;
 	}
 
 	.topDest img {
-		width: 100%;
+		width: 80%;
 	}
 
-	.explore {
-		width: 100%;
-		margin: 0;
-		padding: 10px 0;
+	.first-page {
+		font-size: 1em;
+	}
+
+	.receipt {
+		font-size: .8em;
+	}
+
+	input {
+		font-size: 1em;
+		width: 50%;
 	}
 
 
-}*/
+}

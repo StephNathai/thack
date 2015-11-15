@@ -15,79 +15,88 @@
     <!-- GOOGLE FONTS -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   </head>
+  
   <body>
+  
     <script src="/socket.io/socket.io.js"></script>
 
+      <div class="wrapper">
 
-<div class="wrapper">
-  <div class="first-page">
-    <div id="mainPhoto">
-       <h1>GroupAway</h1>
-    </div>
-    
-    <h2>How many people are traveling in your group?</h2>
-        <input type="number" class="group-number" />
-    <h2> Airport of origin </h2>
-        <input type="text" class="city" />
-    <h2>Dates</h2>
-      <input type="date" class="departure-date" /><br><br>
-      <input type="date" class="arrival-date" />
-      <br><br><br>
+        <div class="first-page">
+          <div id="content">
+          <div id="mainPhoto"><h1>GroupAway</h1></div>
+          <h2>Number of people in my group</h2>
+              <input type="number" class="group-number" placeholder="#" />
+          <h2> Airport of origin </h2>
+              <input type="text" class="city" placeholder="JFK"/>
+          <h2>Dates</h2>
+            <input type="date" class="departure-date" /><br><br>
+            <input type="date" class="arrival-date" />
+          <br><br><br>
+          <h2 class="explore">EXPLORE</h2>
+        </div>
+        </div>
 
-    <h2 class="explore">EXPLORE</h2>
-    </div>
-      <div class="themes">
-        <div class="theme-individual">
-          <img src="./images/beach.jpg"/>
-          <h4>Beach</h4>
+        <div class="themes">
+          <div class="theme-individual">
+            <img src="./images/beach.jpg"/>
+            <h4>Beach</h4>
+          </div>
+          <div class="theme-individual">
+              <img src="./images/grandcentral.jpg"/>
+              <h4>Historic</h4>
+          </div>
+          <div class="theme-individual">
+              <img src="./images/hiking.jpg"/>
+               <h4>Outdoors</h4>
+              <!-- http://adventure.nationalgeographic.com/adventure/outfitter_profile/id163 -->
+          </div>
+          <div class="theme-individual">
+              <img src="./images/honeymoon.jpg"/>
+              <h4>Romantic</h4>
+              <!-- http://www.travelchannel.com/interests/romance-and-honeymoons/articles/2013s-most-romantic-honeymoon-destinations -->
+          </div>
+          <div class="theme-individual">
+              <img src="./images/Dubai.jpg"/>
+              <h4>Shopping</h4>
+              <!--  http://www.travelandtourworld.com/news/article/dubai-ranks-second-popular-world-shopping-destination/ -->
+          </div>
+          <div class="theme-individual">
+              <img src="./images/family.jpg"/>
+               <h4>Theme Park</h4>
+              <!--    http://www.littlerockfamily.com/post/99568/family-travel-vacation-tips-pointers-for-disneyworld -->
+          </div>
         </div>
-        <div class="theme-individual">
-            <img src="./images/grandcentral.jpg"/>
-            <h4>Historic</h4>
+        
+        <div class="topDest"></div>
+
+        <div class="receipt">
+          <h3 id="receiptTitle">GroupAway</h3>
+          <h4 id="groupIt">Itinerary for a group of </h4>
+          <h4 id="airportOr">Airport origin:</h4>
+          <h4 id="deptDate">Departure date:</h4>
+          <h4 id="returnDate">Return date:</h4>
+        
+          <ul id="hotelList">
+            <h4>Suggested hotels:</h4>
+          </ul>
+
+          <textarea id="textBox" name="Text1" cols="30" rows="5" placeholder="Write any notes to your travel group..." ></textarea>
+          <br><br>
+          
+          <div id="share">Share</div>
+          <div id="googledoc"><img src="/images/googledoc.png"></div>
+
         </div>
-        <div class="theme-individual">
-            <img src="./images/hiking.jpg"/>
-             <h4>Outdoors</h4>
-            <!-- http://adventure.nationalgeographic.com/adventure/outfitter_profile/id163 -->
-        </div>
-        <div class="theme-individual">
-            <img src="./images/honeymoon.jpg"/>
-            <h4>Romantic</h4>
-            <!-- http://www.travelchannel.com/interests/romance-and-honeymoons/articles/2013s-most-romantic-honeymoon-destinations -->
-        </div>
-        <div class="theme-individual">
-            <img src="./images/Dubai.jpg"/>
-            <h4>Shopping</h4>
-            <!--  http://www.travelandtourworld.com/news/article/dubai-ranks-second-popular-world-shopping-destination/ -->
-        </div>
-        <div class="theme-individual">
-            <img src="./images/family.jpg"/>
-             <h4>Theme Park</h4>
-            <!--    http://www.littlerockfamily.com/post/99568/family-travel-vacation-tips-pointers-for-disneyworld -->
-        </div>
+
       </div>
 
-      <div class="topDest"></div>
-    </div>
 
-
-    <div class="receipt">
-      <h3 id="receiptTitle"></h3>
-      <h4 id="groupIt">Itinerary for a group of </h4>
-      <h4 id="airportOr">Airport origin:</h4>
-      <h4 id="deptDate">Departure date:</h4>
-      <h4 id="returnDate">Return date:</h4>
-    
-      <ul id="hotelList"><h4>Suggested hotels:</h4>
-      </ul>
-
-      <textarea name="Text1" cols="40" rows="5"  ></textarea>
-      
-
-      <div id="share">Share</div>
-
-    </div>
-
-  </div>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          var images = ['bg1.jpg', 'bg2.jpg', 'bg4.jpg', 'bg6.jpg', 'bg7.jpg', 'bg8.jpg', 'bg9.jpg', 'bg10.jpg'];
+          $('.first-page').css({'background-image': 'url(images/' + images[Math.floor(Math.random() * images.length)] + ')'});
+        }); 
+      </script>
   </body>
 </html>
