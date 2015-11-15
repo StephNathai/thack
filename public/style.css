@@ -276,6 +276,9 @@ input {
 		height: 20px;
 	}
 
+	#content {
+		width: 80%;
+	}
 
 
 
