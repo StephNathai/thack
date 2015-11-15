@@ -38,7 +38,7 @@ $(function() {
       cityName = cityList[i].Destination.CityName;
       if (cityName != undefined) {
         cityArr.push(cityName);
-        $('.topDest').append($('<h4 class= '+cityName+' >').text(cityArr[i]));
+        $('.topDest').append($('<h4 class= '+cityName+' />').text(cityArr[i]));
       } else {
         var metroName = cityList[i].Destination.MetropolitanAreaName;
         cityArr.push(metroName);
