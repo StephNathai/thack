@@ -19,7 +19,7 @@ $('.explore').on('click', function() {
   $('.theme-individual').on('click', function() {
 
     theme = $(this).find('h4').text();
-        $('.topDest').html('<h1>Top destinations for ' + theme + '</h1>');
+        $('.topDest').html('<h1>Top destinations for ' + theme + ' trip</h1><h3>Pick a few hotels below to add to your itinerary!</h3>');
   });
 
  $('.theme-individual').on('click', function() {
@@ -42,7 +42,7 @@ $('.explore').on('click', function() {
       cityName = cityList[i].Destination.CityName;
       if (cityName != undefined) {
         cityArr.push(cityName);
-        $('.topDest').append($('<h4 class= '+cityName+' />').text(cityArr[i]));
+        $('.topDest').append($('<h3 class= '+cityName+' />').text(cityArr[i]));
       } else {
         var metroName = cityList[i].Destination.MetropolitanAreaName;
         cityArr.push(metroName);

@@ -4,6 +4,7 @@ body, html {
 	width: 100%;
 	padding: 0;
 	margin: 0;
+	background-color: #E9EDF0;
 }
 
 .wrapper {
@@ -12,6 +13,10 @@ body, html {
 	margin: 0 auto;
 	text-align: center;
 	z-index: 10;
+}
+
+#travelTheme {
+	text-align: center;
 }
 
 #content {
@@ -28,7 +33,6 @@ body, html {
 	height: 100%;
 	background-image: url("/images/bg4.jpg") no-repeat center center fixed;
 	background-size: cover;
-
 }
 
 .first-page h2 {
@@ -132,6 +136,7 @@ input {
 }
 
 .topDest {
+  background-color: #E9EDF0;
   display: none;
   width: 100%;
   display: block;
@@ -144,6 +149,10 @@ input {
   z-index: 5;
   opacity: .8;
   margin: 20px;
+}
+
+.topDest h1 {
+	text-decoration: underline;
 }
 
 .topDest li {
