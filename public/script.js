@@ -49,11 +49,16 @@ socket.on('topDestinations', function(tripData) {
     if (cityName != undefined) {
       // var metroName = cityList[i].Destination.MetropolitanAreaName;
       cityArr.push(cityName);
+
+        $('.topDest ul').append($('<li>').text(cityArr[i]));
+
     } else {
       var metroName = cityList[i].Destination.MetropolitanAreaName;
       cityArr.push(metroName);
+      $('.topDest ul').append($('<li>').text(cityArr[i]));
     }
   }
+
   console.log(cityArr);
 
   socket.emit('cityData', cityArr);

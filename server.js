@@ -41,22 +41,35 @@ io.on('connection', function(socket){
 
     // console.log('groupNumber:', groupNumber, 'city:', city, 'departureDate:', departureDate, 'arrivalDate', arrivalDate, 'maxBudget:', maxBudget, 'theme', theme)
 
-   });
 
-  socket.on('cityData', function(cityArr) {
-  	request('https://www.priceline.com/pws/v0/stay/retail/listing/new%20york?rguid=3459hjdfdf&check-in=20151201&check-out=20151202&currency=USD&responseoptions=DETAILED_HOTEL,NEARBY_ATTR&rooms=1&sort=HDR&offset=0&page-size=5', function(error, response, body) {
-  		if (!error && response.statusCode == 200) {
-  			console.log(body);
-  			body = JSON.parse(body);
-  			app.get('/priceline', function (req, res) {
-  				res.json(body);
-  			});
-  		}
+    socket.on('cityData', function(cityArr) {
+    	var checkInDate = departureDate.replace(/-/g, "");
+    	var checkOutDate = arrivalDate.replace(/-/g, "");
+
+
+
+    	for (var i=0; i < cityArr.length; i++) {
+    		var formattedCity = cityArr[i].replace(/ /g, "%20");
+    		console.log('FORMATTED CITY', formattedCity);
+    		var url = 'https://www.priceline.com/pws/v0/stay/retail/listing/'+formattedCity+'?rguid=3459hjdfdf&check-in='+checkInDate+'&check-out='+checkOutDate+'&currency=USD&responseoptions=DETAILED_HOTEL,NEARBY_ATTR&rooms='+groupNumber+'&sort=HDR&offset=0&page-size=5';
+    		console.log("URL", url);
+    		request(url, 
+    			function(error, response, body) {
+			  		if (!error && response.statusCode == 200) {
+			  			body = JSON.parse(body);
+			  			console.log("THIS WORKS", body);
+			  			app.get('/priceline', function (req, res) {
+			  			res.json(body);
+			  			
+			  		});
+			  		} // if
+    			}); // API call
+		}; // for loop
+
+  		
   	});
-  	console.log("SERVER _ CITY NAMES", cityArr);
 
-  });
-
+   }); // socket.on - cityData
 
 
 })//io

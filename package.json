@@ -15,7 +15,8 @@
     "morgan": "^1.6.1",
     "request": "^2.65.0",
     "sabre-dev-studio": "^1.0.2",
-    "socket.io": "^1.3.7"
+    "socket.io": "^1.3.7",
+    "urlencode": "^1.1.0"
   },
   "devDependencies": {
     "http": "0.0.0"
