@@ -102,7 +102,7 @@ $('.explore').on('click', function() {
       $('.receipt').show();
       $('.receipt.span').toggle();
 
-      $('#receiptTitle').html("Suggested itinerary for our " + theme + " trip!");
+      $('#receiptTitle').html("Group itinerary for a " + theme + " trip!");
        var hotelSelection = $(this).text();
        $('#hotelList').append('<li>' + hotelSelection+'</li>');
        $('#airportOr').html("Airport origin: " + city.toUpperCase());
@@ -112,9 +112,10 @@ $('.explore').on('click', function() {
   
     });
 
-    $('.receipt li').on('click', function() {
+    $(document).on('click', '#hotelList > li', function() {
         $(this).remove();
     });
+  
 
     $('#share').on('click', function() {
       $('#googledoc').toggle();

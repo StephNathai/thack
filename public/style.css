@@ -61,8 +61,13 @@ li {
 }
 
 #mainPhoto h1 {
-	padding: 50px;
+	padding-top: 50px;
 	margin: 0;
+}
+
+#mainPhoto h3 {
+	padding-bottom: 50px;
+	font-style: italic;
 }
 
 #mainPhoto img {
@@ -74,6 +79,7 @@ input {
 	font-size: 1.5em;
 	height: 40px;
 	text-align: center;
+	width: 200px;
 }
 
 .themes {
@@ -133,7 +139,7 @@ input {
 }
 
 .topDest img {
-  width: 60%;
+  width: 54%;
   position: relative;
   z-index: 5;
   opacity: .8;
@@ -179,14 +185,23 @@ input {
 #hotelList {
 	padding: 0;
 }
+#hotelList li:hover {
+		background: black;
+		color: white;
+	}
 
 #share {
-	display: inline-block;
 	font-size: 1.4em;
 	background: black;
 	color: white;
 	padding: 5px;
 	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+}
+
+#footer {
+	text-align: center;
 }
 
 #googledoc {
@@ -250,6 +265,8 @@ input {
 		font-size: 1em;
 		width: 50%;
 	}
+
+
 
 
 }
