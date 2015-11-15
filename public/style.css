@@ -235,7 +235,7 @@ input {
  	
  	.wrapper {
  		padding: 0;
-		width: 100%;
+		width: 80%;
 		margin: 0 auto;
 		text-align: center;
 	}
@@ -273,13 +273,16 @@ input {
 	input {
 		font-size: 1em;
 		width: 50%;
-		height: 20px;
+		height: 30px;
 	}
 
 	#content {
 		width: 80%;
 	}
 
+	#travelTheme {
+		font-size: .8em;
+	}
 
 
 }
