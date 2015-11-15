@@ -30,31 +30,32 @@ io.on('connection', function(socket){
 	    console.log(error);
 	  } else {
 	    tripData = JSON.parse(data);
-	    cityNames = tripData.Destinations.Destination;
-	    console.log('CITY NAMES', cityNames);
-
-	    // var cityList = [];
-	    // for (var i=0; i< cityNames.length; i++) {
-	    // 	var cityName = cityNames[i].Destination.CityName;
-	    // 	cityList.push(cityName);
-	    // }
-
-
 
 	    socket.emit('topDestinations', tripData);
 	    app.get('/data', function(req, res) {
-  			res.json(JSON.parse(data));
-	    console.log('server - trip data', tripData);
+  			res.json(tripData);
   		});
 	  }
 	};
 	sabre_dev_studio.get('/v1/lists/top/destinations?origin='+city+'&theme='+theme+'&topdestinations=6&lookbackweeks=2', options, callback);
 
-
-
-    console.log('groupNumber:', groupNumber, 'city:', city, 'departureDate:', departureDate, 'arrivalDate', arrivalDate, 'maxBudget:', maxBudget, 'theme', theme)
+    // console.log('groupNumber:', groupNumber, 'city:', city, 'departureDate:', departureDate, 'arrivalDate', arrivalDate, 'maxBudget:', maxBudget, 'theme', theme)
 
    });
+
+  socket.on('cityData', function(cityArr) {
+  	request('https://www.priceline.com/pws/v0/stay/retail/listing/new%20york?rguid=3459hjdfdf&check-in=20151201&check-out=20151202&currency=USD&responseoptions=DETAILED_HOTEL,NEARBY_ATTR&rooms=1&sort=HDR&offset=0&page-size=5', function(error, response, body) {
+  		if (!error && response.statusCode == 200) {
+  			console.log(body);
+  			body = JSON.parse(body);
+  			app.get('/priceline', function (req, res) {
+  				res.json(body);
+  			});
+  		}
+  	});
+  	console.log("SERVER _ CITY NAMES", cityArr);
+
+  });
 
 
 

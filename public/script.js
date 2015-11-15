@@ -54,8 +54,10 @@ socket.on('topDestinations', function(tripData) {
       cityArr.push(metroName);
     }
   }
-
   console.log(cityArr);
+
+  socket.emit('cityData', cityArr);
+
   $('.themes').remove();
   $('.topDest').show();
 });
