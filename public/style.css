@@ -235,7 +235,7 @@ input {
  	
  	.wrapper {
  		padding: 0;
-		width: 80%;
+		width: 100%;
 		margin: 0 auto;
 		text-align: center;
 	}
@@ -277,7 +277,9 @@ input {
 	}
 
 	#content {
-		width: 80%;
+		width: 90%;
+		margin: 0 10px;
+		margin: 0 auto;
 	}
 
 	#travelTheme {
