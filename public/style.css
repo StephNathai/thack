@@ -241,11 +241,13 @@ input {
 	}
 
 	#content {
-		width: 70%;
+		width: 80%;
+		margin: 0 10px;
+		margin: 0 auto;
 	}
 
 	.themes h4 {
-		font-size: .7em;
+		font-size: 1em;
 	}
 
 	.themes img {
@@ -254,7 +256,7 @@ input {
 	}
 
 	.topDest {
-		font-size: .7em;
+		font-size: .8em;
 		font-weight: bold;
 	}
 
@@ -263,23 +265,17 @@ input {
 	}
 
 	.first-page {
-		font-size: .7em;
+		font-size: .8em;
 	}
 
 	.receipt {
-		font-size: .7em;
+		font-size: 1em;
 	}
 
 	input {
 		font-size: 1em;
 		width: 50%;
 		height: 30px;
-	}
-
-	#content {
-		width: 90%;
-		margin: 0 10px;
-		margin: 0 auto;
 	}
 
 	#travelTheme {
