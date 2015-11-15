@@ -5,7 +5,7 @@ var morgan = require('morgan');
 var app = express();
 var SabreDevStudio = require('sabre-dev-studio');
 
-var server = app.listen(3000);
+var server = app.listen(process.env.VCAP_APP_PORT || 3000);
 var io = require('socket.io')(server);
 
 var flickrKey = '04a087bccc9f97e2dfa82d17b1a6410b';
