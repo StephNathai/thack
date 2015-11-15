@@ -33,3 +33,7 @@ img {
 .topDest {
 	display: none;
 }
+
+.topDest img {
+	width: 50%;
+}
