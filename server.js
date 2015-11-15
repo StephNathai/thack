@@ -48,32 +48,34 @@ io.on('connection', function(socket){
 
     	for (var i=0; i < cityArr.length; i++) {
     		var formattedCity = cityArr[i].replace(/ /g, "%20");
- 
-    		var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+flickrKey+'&tags='+theme+'%2C+'+formattedCity+'&per_page=1&page=1&format=rest';
 
-    		console.log("FLICKR URL", flickrURL);
-
-		    request(flickrURL, function(error, response, body) {
-		      		console.log("FLICKR DATA", body);
-		    });
-	    
+	    	// PRICELINE API TO GRAB FLIGHT DATA
     		var url = 'https://www.priceline.com/pws/v0/stay/retail/listing/'+formattedCity+'?rguid=3459hjdfdf&check-in='+checkInDate+'&check-out='+checkOutDate+'&currency=USD&responseoptions=DETAILED_HOTEL,NEARBY_ATTR&rooms='+groupNumber+'&sort=HDR&offset=0&page-size=5';
-
     		request(url, 
     			function(error, response, body) {
-			  		if (!error && response.statusCode == 200) {
+			  		if (!error && response.statusCode == 200) {	
 			  			body = JSON.parse(body);
 			  			app.get('/priceline', function (req, res) {
-			  			res.json(body);
-			  		});
+			  				res.json(body);
+			  			});
+			  			console.log("FLIGHT BODY", body);
+			  			
 			  		} // if
-    			}); // API call
+    			}); // PRICELINE API 
+ 
+ 			// // FLICKR API CALL (can't render this data atm);
+    // 		var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+flickrKey+'&tags='+theme+'%2C+'+formattedCity+'&per_page=1&page=1&format=rest';
+    // 		// console.log("FLICKR URL", flickrURL);
+		  //   request(flickrURL, function(error, response, body) {
+		  //     		console.log("FLICKR DATA", body);
+		  //   }); // flickr api
+
 		}; // for loop
 
-  		
-  	});
+ 
+  	}); // socket.on - cityData
 
-   }); // socket.on - cityData
+   }); // socket.on - params
 
 
 })//io
